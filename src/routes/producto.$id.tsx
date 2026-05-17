@@ -57,7 +57,7 @@ function ProductoDetalle() {
             </p>
 
             <p className="mt-6 font-display text-3xl">Bs {p.precio}</p>
-            <p className="text-xs text-muted-foreground">Incluye envío a todo Bolivia</p>
+            <p className="text-xs text-muted-foreground">Entregas dentro de Santa Cruz de la Sierra</p>
 
             <p className="mt-6 leading-relaxed text-foreground/80">{p.descripcion}</p>
 
