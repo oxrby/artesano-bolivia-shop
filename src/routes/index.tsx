@@ -101,8 +101,8 @@ function Index() {
               Convierte tu taller en una tienda online.
             </h2>
             <p className="mt-3 text-sm opacity-90">
-              Publica tus piezas, recibe pedidos de todo el país y dedícate a lo
-              que mejor sabes hacer: crear.
+              Publica tus piezas, recibe pedidos dentro de Santa Cruz y dedícate
+              a lo que mejor sabes hacer: crear.
             </p>
             <Link
               to="/vender"
