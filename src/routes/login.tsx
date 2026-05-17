@@ -94,7 +94,7 @@ function Login() {
         <div className="mt-10 rounded-xl bg-secondary/60 p-4 text-sm">
           <p className="font-medium">¿Eres artesano?</p>
           <p className="mt-1 text-muted-foreground">
-            Abre tu propia tienda en Artesa y vende a todo el país.
+            Abre tu propia tienda en Artesa y vende dentro de Santa Cruz.
           </p>
           <Link
             to="/vender"

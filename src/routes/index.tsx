@@ -21,14 +21,15 @@ function Index() {
         <div className="grid items-center gap-8 md:grid-cols-[1.1fr_1fr]">
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              Mercado boliviano · Hecho a mano
+              Santa Cruz · Hecho a mano
             </p>
             <h1 className="font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl md:text-7xl">
-              Arte que viene <em className="italic text-primary">de las manos</em> de Bolivia.
+              Arte que viene <em className="italic text-primary">de las manos</em> cruceñas.
             </h1>
             <p className="mt-5 max-w-md text-base text-muted-foreground">
-              Descubre piezas únicas creadas por artesanos de los nueve
-              departamentos. Cada compra apoya directamente a sus familias.
+              Un proyecto recién nacido en Santa Cruz de la Sierra. Somos un
+              equipo de 3 personas conectando artesanos locales con clientes
+              que valoran lo hecho a mano.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
@@ -62,16 +63,16 @@ function Index() {
       <section className="mx-auto mt-16 max-w-6xl px-5">
         <div className="grid grid-cols-3 gap-4 border-y border-border py-6 text-center">
           <div>
-            <p className="font-display text-2xl">+340</p>
-            <p className="text-xs text-muted-foreground">Artesanos</p>
+            <p className="font-display text-2xl">3</p>
+            <p className="text-xs text-muted-foreground">Personas en el equipo</p>
           </div>
           <div>
-            <p className="font-display text-2xl">9</p>
-            <p className="text-xs text-muted-foreground">Departamentos</p>
+            <p className="font-display text-2xl">SCZ</p>
+            <p className="text-xs text-muted-foreground">Solo Santa Cruz</p>
           </div>
           <div>
             <p className="font-display text-2xl">100%</p>
-            <p className="text-xs text-muted-foreground">Hecho en Bolivia</p>
+            <p className="text-xs text-muted-foreground">Hecho a mano</p>
           </div>
         </div>
       </section>
@@ -100,8 +101,8 @@ function Index() {
               Convierte tu taller en una tienda online.
             </h2>
             <p className="mt-3 text-sm opacity-90">
-              Publica tus piezas, recibe pedidos de todo el país y dedícate a lo
-              que mejor sabes hacer: crear.
+              Publica tus piezas, recibe pedidos dentro de Santa Cruz y dedícate
+              a lo que mejor sabes hacer: crear.
             </p>
             <Link
               to="/vender"

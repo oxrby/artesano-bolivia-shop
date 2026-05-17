@@ -57,7 +57,7 @@ function ProductoDetalle() {
             </p>
 
             <p className="mt-6 font-display text-3xl">Bs {p.precio}</p>
-            <p className="text-xs text-muted-foreground">Incluye envío a todo Bolivia</p>
+            <p className="text-xs text-muted-foreground">Entregas dentro de Santa Cruz de la Sierra</p>
 
             <p className="mt-6 leading-relaxed text-foreground/80">{p.descripcion}</p>
 
@@ -75,8 +75,8 @@ function ProductoDetalle() {
 
             <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 text-xs text-muted-foreground">
               <div>
-                <p className="mb-1 font-medium text-foreground">Envío</p>
-                3–7 días hábiles en todo el país
+                <p className="mb-1 font-medium text-foreground">Entrega</p>
+                2–5 días dentro de Santa Cruz
               </div>
               <div>
                 <p className="mb-1 font-medium text-foreground">Pago</p>

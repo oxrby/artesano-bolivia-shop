@@ -10,7 +10,7 @@ export function SiteHeader() {
             artesa
           </span>
           <span className="hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-            Bolivia
+            Santa Cruz
           </span>
         </Link>
 
@@ -65,8 +65,8 @@ export function SiteFooter() {
         <div>
           <p className="font-display text-xl">artesa</p>
           <p className="mt-2 max-w-xs text-sm text-muted-foreground">
-            El mercado de artesanos bolivianos. Hecho a mano, enviado con
-            cariño desde los nueve departamentos.
+            Un pequeño proyecto cruceño. Hecho a mano, entregado con cariño
+            dentro de Santa Cruz de la Sierra.
           </p>
         </div>
         <div className="text-sm">
@@ -87,7 +87,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Artesa · Hecho en Bolivia 🇧🇴
+        © {new Date().getFullYear()} Artesa · Santa Cruz de la Sierra 🇧🇴
       </div>
     </footer>
   );

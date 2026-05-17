@@ -34,7 +34,7 @@ function Productos() {
       <section className="mx-auto max-w-6xl px-5 pt-10">
         <h1 className="font-display text-4xl sm:text-5xl">Explorar</h1>
         <p className="mt-2 text-muted-foreground">
-          {filtered.length} {filtered.length === 1 ? "producto" : "productos"} de artesanos bolivianos.
+          {filtered.length} {filtered.length === 1 ? "producto" : "productos"} de artesanos cruceños.
         </p>
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">

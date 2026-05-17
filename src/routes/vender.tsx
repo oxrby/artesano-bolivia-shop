@@ -7,7 +7,7 @@ export const Route = createFileRoute("/vender")({
   head: () => ({
     meta: [
       { title: "Vender en Artesa — Abre tu tienda" },
-      { name: "description", content: "Registra tu taller en Artesa y vende tus piezas a clientes en todo Bolivia." },
+      { name: "description", content: "Registra tu taller en Artesa y vende tus piezas dentro de Santa Cruz de la Sierra." },
     ],
   }),
   component: Vender,
@@ -16,8 +16,8 @@ export const Route = createFileRoute("/vender")({
 const beneficios = [
   "Publica productos en minutos",
   "Cobros en bolivianos, sin comisiones ocultas",
-  "Envíos a todo Bolivia desde tu taller",
-  "Soporte 1 a 1 para nuevos artesanos",
+  "Entregas dentro de Santa Cruz",
+  "Soporte 1 a 1 de nuestro equipo de 3 personas",
 ];
 
 function Vender() {
@@ -52,9 +52,9 @@ function Vender() {
               Vende lo que <em className="italic text-primary">creas con tus manos</em>.
             </h1>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Artesa es el mercado donde más de 340 artesanos bolivianos
-              encuentran clientes que valoran su trabajo. Registra tu taller y
-              empieza a recibir pedidos.
+              Artesa es un proyecto cruceño recién nacido. Somos un equipo de 3
+              personas ayudando a artesanos de Santa Cruz a recibir sus
+              primeros pedidos online. Registra tu taller y suma tu trabajo.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -92,7 +92,7 @@ function Vender() {
                   <Field label="Nombre completo" value={form.nombre} onChange={set("nombre")} />
                   <Field label="Nombre del taller" value={form.taller} onChange={set("taller")} />
                 </div>
-                <Field label="Departamento" value={form.region} onChange={set("region")} placeholder="La Paz, Cochabamba, Santa Cruz…" />
+                <Field label="Zona de Santa Cruz" value={form.region} onChange={set("region")} placeholder="Equipetrol, Plan 3000, Norte…" />
                 <Field label="Correo electrónico" type="email" value={form.email} onChange={set("email")} />
                 <Field label="Contraseña" type="password" value={form.password} onChange={set("password")} />
 
