@@ -10,7 +10,7 @@ export function SiteHeader() {
             artesa
           </span>
           <span className="hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:inline">
-            Bolivia
+            Santa Cruz
           </span>
         </Link>
 
