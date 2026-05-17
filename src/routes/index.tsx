@@ -63,16 +63,16 @@ function Index() {
       <section className="mx-auto mt-16 max-w-6xl px-5">
         <div className="grid grid-cols-3 gap-4 border-y border-border py-6 text-center">
           <div>
-            <p className="font-display text-2xl">+340</p>
-            <p className="text-xs text-muted-foreground">Artesanos</p>
+            <p className="font-display text-2xl">3</p>
+            <p className="text-xs text-muted-foreground">Personas en el equipo</p>
           </div>
           <div>
-            <p className="font-display text-2xl">9</p>
-            <p className="text-xs text-muted-foreground">Departamentos</p>
+            <p className="font-display text-2xl">SCZ</p>
+            <p className="text-xs text-muted-foreground">Solo Santa Cruz</p>
           </div>
           <div>
             <p className="font-display text-2xl">100%</p>
-            <p className="text-xs text-muted-foreground">Hecho en Bolivia</p>
+            <p className="text-xs text-muted-foreground">Hecho a mano</p>
           </div>
         </div>
       </section>
