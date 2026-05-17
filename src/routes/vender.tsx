@@ -92,7 +92,7 @@ function Vender() {
                   <Field label="Nombre completo" value={form.nombre} onChange={set("nombre")} />
                   <Field label="Nombre del taller" value={form.taller} onChange={set("taller")} />
                 </div>
-                <Field label="Departamento" value={form.region} onChange={set("region")} placeholder="La Paz, Cochabamba, Santa Cruz…" />
+                <Field label="Zona de Santa Cruz" value={form.region} onChange={set("region")} placeholder="Equipetrol, Plan 3000, Norte…" />
                 <Field label="Correo electrónico" type="email" value={form.email} onChange={set("email")} />
                 <Field label="Contraseña" type="password" value={form.password} onChange={set("password")} />
 
