@@ -16,8 +16,8 @@ export const Route = createFileRoute("/vender")({
 const beneficios = [
   "Publica productos en minutos",
   "Cobros en bolivianos, sin comisiones ocultas",
-  "Envíos a todo Bolivia desde tu taller",
-  "Soporte 1 a 1 para nuevos artesanos",
+  "Entregas dentro de Santa Cruz",
+  "Soporte 1 a 1 de nuestro equipo de 3 personas",
 ];
 
 function Vender() {
