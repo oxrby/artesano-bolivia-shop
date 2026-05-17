@@ -75,8 +75,8 @@ function ProductoDetalle() {
 
             <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 text-xs text-muted-foreground">
               <div>
-                <p className="mb-1 font-medium text-foreground">Envío</p>
-                3–7 días hábiles en todo el país
+                <p className="mb-1 font-medium text-foreground">Entrega</p>
+                2–5 días dentro de Santa Cruz
               </div>
               <div>
                 <p className="mb-1 font-medium text-foreground">Pago</p>
