@@ -52,9 +52,9 @@ function Vender() {
               Vende lo que <em className="italic text-primary">creas con tus manos</em>.
             </h1>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Artesa es el mercado donde más de 340 artesanos bolivianos
-              encuentran clientes que valoran su trabajo. Registra tu taller y
-              empieza a recibir pedidos.
+              Artesa es un proyecto cruceño recién nacido. Somos un equipo de 3
+              personas ayudando a artesanos de Santa Cruz a recibir sus
+              primeros pedidos online. Registra tu taller y suma tu trabajo.
             </p>
 
             <ul className="mt-8 space-y-3">
