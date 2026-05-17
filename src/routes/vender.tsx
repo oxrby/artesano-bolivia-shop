@@ -7,7 +7,7 @@ export const Route = createFileRoute("/vender")({
   head: () => ({
     meta: [
       { title: "Vender en Artesa — Abre tu tienda" },
-      { name: "description", content: "Registra tu taller en Artesa y vende tus piezas a clientes en todo Bolivia." },
+      { name: "description", content: "Registra tu taller en Artesa y vende tus piezas dentro de Santa Cruz de la Sierra." },
     ],
   }),
   component: Vender,
