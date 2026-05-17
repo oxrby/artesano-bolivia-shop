@@ -65,8 +65,8 @@ export function SiteFooter() {
         <div>
           <p className="font-display text-xl">artesa</p>
           <p className="mt-2 max-w-xs text-sm text-muted-foreground">
-            El mercado de artesanos bolivianos. Hecho a mano, enviado con
-            cariño desde los nueve departamentos.
+            Un pequeño proyecto cruceño. Hecho a mano, entregado con cariño
+            dentro de Santa Cruz de la Sierra.
           </p>
         </div>
         <div className="text-sm">
