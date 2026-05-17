@@ -87,7 +87,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Artesa · Hecho en Bolivia 🇧🇴
+        © {new Date().getFullYear()} Artesa · Santa Cruz de la Sierra 🇧🇴
       </div>
     </footer>
   );
