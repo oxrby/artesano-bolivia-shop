@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VenderRouteImport } from './routes/vender'
 import { Route as ProductosRouteImport } from './routes/productos'
+import { Route as PagoQrRouteImport } from './routes/pago-qr'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as CarritoRouteImport } from './routes/carrito'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductoIdRouteImport } from './routes/producto.$id'
 
@@ -25,9 +27,19 @@ const ProductosRoute = ProductosRouteImport.update({
   path: '/productos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PagoQrRoute = PagoQrRouteImport.update({
+  id: '/pago-qr',
+  path: '/pago-qr',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarritoRoute = CarritoRouteImport.update({
+  id: '/carrito',
+  path: '/carrito',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,14 +55,18 @@ const ProductoIdRoute = ProductoIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrito': typeof CarritoRoute
   '/login': typeof LoginRoute
+  '/pago-qr': typeof PagoQrRoute
   '/productos': typeof ProductosRoute
   '/vender': typeof VenderRoute
   '/producto/$id': typeof ProductoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrito': typeof CarritoRoute
   '/login': typeof LoginRoute
+  '/pago-qr': typeof PagoQrRoute
   '/productos': typeof ProductosRoute
   '/vender': typeof VenderRoute
   '/producto/$id': typeof ProductoIdRoute
@@ -58,22 +74,48 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrito': typeof CarritoRoute
   '/login': typeof LoginRoute
+  '/pago-qr': typeof PagoQrRoute
   '/productos': typeof ProductosRoute
   '/vender': typeof VenderRoute
   '/producto/$id': typeof ProductoIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/productos' | '/vender' | '/producto/$id'
+  fullPaths:
+    | '/'
+    | '/carrito'
+    | '/login'
+    | '/pago-qr'
+    | '/productos'
+    | '/vender'
+    | '/producto/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/productos' | '/vender' | '/producto/$id'
-  id: '__root__' | '/' | '/login' | '/productos' | '/vender' | '/producto/$id'
+  to:
+    | '/'
+    | '/carrito'
+    | '/login'
+    | '/pago-qr'
+    | '/productos'
+    | '/vender'
+    | '/producto/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/carrito'
+    | '/login'
+    | '/pago-qr'
+    | '/productos'
+    | '/vender'
+    | '/producto/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarritoRoute: typeof CarritoRoute
   LoginRoute: typeof LoginRoute
+  PagoQrRoute: typeof PagoQrRoute
   ProductosRoute: typeof ProductosRoute
   VenderRoute: typeof VenderRoute
   ProductoIdRoute: typeof ProductoIdRoute
@@ -95,11 +137,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pago-qr': {
+      id: '/pago-qr'
+      path: '/pago-qr'
+      fullPath: '/pago-qr'
+      preLoaderRoute: typeof PagoQrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carrito': {
+      id: '/carrito'
+      path: '/carrito'
+      fullPath: '/carrito'
+      preLoaderRoute: typeof CarritoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -121,7 +177,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarritoRoute: CarritoRoute,
   LoginRoute: LoginRoute,
+  PagoQrRoute: PagoQrRoute,
   ProductosRoute: ProductosRoute,
   VenderRoute: VenderRoute,
   ProductoIdRoute: ProductoIdRoute,
