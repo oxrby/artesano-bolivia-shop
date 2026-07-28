@@ -17,7 +17,7 @@ const beneficios = [
   "Publica productos en minutos",
   "Cobros en bolivianos, sin comisiones ocultas",
   "Entregas dentro de Santa Cruz",
-  "Soporte 1 a 1 de nuestro equipo de 3 personas",
+  "Soporte 1 a 1 de nuestro equipo de 2 personas",
 ];
 
 function Vender() {
@@ -52,7 +52,7 @@ function Vender() {
               Vende lo que <em className="italic text-primary">creas con tus manos</em>.
             </h1>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Artesa es un proyecto cruceño recién nacido. Somos un equipo de 3
+              Artesa es un proyecto cruceño recién nacido. Somos un equipo de 2
               personas ayudando a artesanos de Santa Cruz a recibir sus
               primeros pedidos online. Registra tu taller y suma tu trabajo.
             </p>
