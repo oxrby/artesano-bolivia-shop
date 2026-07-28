@@ -14,7 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orders: {
+        Row: {
+          created_at: string
+          delivery_address: string
+          id: string
+          items: Json
+          notes: string | null
+          phone: string
+          status: string
+          total: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          delivery_address: string
+          id?: string
+          items: Json
+          notes?: string | null
+          phone: string
+          status?: string
+          total: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          delivery_address?: string
+          id?: string
+          items?: Json
+          notes?: string | null
+          phone?: string
+          status?: string
+          total?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          address: string | null
+          created_at: string
+          description: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          region: string | null
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+          workshop_name: string | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          description?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          region?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          workshop_name?: string | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          description?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          region?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          workshop_name?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +97,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      user_role: "buyer" | "seller"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +224,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      user_role: ["buyer", "seller"],
+    },
   },
 } as const
