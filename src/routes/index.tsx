@@ -28,7 +28,7 @@ function Index() {
             </h1>
             <p className="mt-5 max-w-md text-base text-muted-foreground">
               Un proyecto recién nacido en Santa Cruz de la Sierra. Somos un
-              equipo de 3 personas conectando artesanos locales con clientes
+              equipo de 2 personas conectando artesanos locales con clientes
               que valoran lo hecho a mano.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -63,7 +63,7 @@ function Index() {
       <section className="mx-auto mt-16 max-w-6xl px-5">
         <div className="grid grid-cols-3 gap-4 border-y border-border py-6 text-center">
           <div>
-            <p className="font-display text-2xl">3</p>
+            <p className="font-display text-2xl">2</p>
             <p className="text-xs text-muted-foreground">Personas en el equipo</p>
           </div>
           <div>

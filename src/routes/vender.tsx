@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/vender")({
   head: () => ({
@@ -17,7 +19,7 @@ const beneficios = [
   "Publica productos en minutos",
   "Cobros en bolivianos, sin comisiones ocultas",
   "Entregas dentro de Santa Cruz",
-  "Soporte 1 a 1 de nuestro equipo de 3 personas",
+  "Soporte 1 a 1 de nuestro equipo de 2 personas",
 ];
 
 function Vender() {
@@ -30,13 +32,40 @@ function Vender() {
     descripcion: "",
   });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [k]: e.target.value });
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: form.email,
+        password: form.password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`,
+          data: { full_name: form.nombre, role: "seller" },
+        },
+      });
+      if (error) throw error;
+      if (data.user) {
+        await supabase.from("profiles").update({
+          full_name: form.nombre,
+          workshop_name: form.taller,
+          region: form.region,
+          description: form.descripcion,
+          role: "seller",
+        }).eq("id", data.user.id);
+      }
+      setSent(true);
+      toast.success("Solicitud enviada");
+    } catch (err: any) {
+      toast.error(err?.message ?? "No se pudo enviar");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,7 +81,7 @@ function Vender() {
               Vende lo que <em className="italic text-primary">creas con tus manos</em>.
             </h1>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Artesa es un proyecto cruceño recién nacido. Somos un equipo de 3
+              Artesa es un proyecto cruceño recién nacido. Somos un equipo de 2
               personas ayudando a artesanos de Santa Cruz a recibir sus
               primeros pedidos online. Registra tu taller y suma tu trabajo.
             </p>
@@ -81,9 +110,6 @@ function Vender() {
                   <span className="text-foreground">{form.email}</span> para
                   activar tu tienda en Artesa.
                 </p>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  (Demo — conecta autenticación y base de datos para activar este flujo.)
-                </p>
               </div>
             ) : (
               <form onSubmit={onSubmit} className="space-y-4">
@@ -110,9 +136,10 @@ function Vender() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+                  disabled={loading}
+                  className="w-full rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 disabled:opacity-60"
                 >
-                  Solicitar mi tienda
+                  {loading ? "Enviando…" : "Solicitar mi tienda"}
                 </button>
                 <p className="text-xs text-muted-foreground">
                   Al continuar aceptas los términos de Artesa.

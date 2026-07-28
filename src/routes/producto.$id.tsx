@@ -1,7 +1,9 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ShoppingBag, Heart } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
 import { products } from "@/lib/products";
+import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/producto/$id")({
   loader: ({ params }) => {
@@ -25,6 +27,18 @@ export const Route = createFileRoute("/producto/$id")({
 
 function ProductoDetalle() {
   const { product: p } = Route.useLoaderData();
+  const { add } = useCart();
+  const nav = useNavigate();
+
+  const addToCart = () => {
+    add(p);
+    toast.success(`${p.nombre} agregado al carrito`);
+  };
+  const buyNow = () => {
+    add(p);
+    nav({ to: "/carrito" });
+  };
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -62,16 +76,23 @@ function ProductoDetalle() {
             <p className="mt-6 leading-relaxed text-foreground/80">{p.descripcion}</p>
 
             <div className="mt-8 flex gap-3">
-              <button className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90">
+              <button
+                onClick={addToCart}
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+              >
                 <ShoppingBag className="h-4 w-4" /> Añadir al carrito
               </button>
               <button
-                className="rounded-full border border-border p-3 transition hover:bg-secondary"
-                aria-label="Guardar"
+                onClick={buyNow}
+                className="rounded-full border border-border px-5 py-3 text-sm font-medium transition hover:bg-secondary"
               >
+                Comprar ahora
+              </button>
+              <button className="rounded-full border border-border p-3 transition hover:bg-secondary" aria-label="Guardar">
                 <Heart className="h-4 w-4" />
               </button>
             </div>
+
 
             <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 text-xs text-muted-foreground">
               <div>
@@ -80,7 +101,7 @@ function ProductoDetalle() {
               </div>
               <div>
                 <p className="mb-1 font-medium text-foreground">Pago</p>
-                QR, tarjeta o transferencia
+                Por QR bancario
               </div>
             </div>
           </div>
