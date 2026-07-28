@@ -101,7 +101,7 @@ function ProductoDetalle() {
               </div>
               <div>
                 <p className="mb-1 font-medium text-foreground">Pago</p>
-                QR, tarjeta o transferencia
+                Por QR bancario
               </div>
             </div>
           </div>
