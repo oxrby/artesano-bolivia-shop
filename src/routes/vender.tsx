@@ -110,9 +110,6 @@ function Vender() {
                   <span className="text-foreground">{form.email}</span> para
                   activar tu tienda en Artesa.
                 </p>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  (Demo — conecta autenticación y base de datos para activar este flujo.)
-                </p>
               </div>
             ) : (
               <form onSubmit={onSubmit} className="space-y-4">
@@ -139,9 +136,10 @@ function Vender() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+                  disabled={loading}
+                  className="w-full rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 disabled:opacity-60"
                 >
-                  Solicitar mi tienda
+                  {loading ? "Enviando…" : "Solicitar mi tienda"}
                 </button>
                 <p className="text-xs text-muted-foreground">
                   Al continuar aceptas los términos de Artesa.
