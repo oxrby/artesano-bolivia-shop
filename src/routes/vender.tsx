@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/vender")({
   head: () => ({
@@ -30,13 +32,40 @@ function Vender() {
     descripcion: "",
   });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [k]: e.target.value });
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: form.email,
+        password: form.password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`,
+          data: { full_name: form.nombre, role: "seller" },
+        },
+      });
+      if (error) throw error;
+      if (data.user) {
+        await supabase.from("profiles").update({
+          full_name: form.nombre,
+          workshop_name: form.taller,
+          region: form.region,
+          description: form.descripcion,
+          role: "seller",
+        }).eq("id", data.user.id);
+      }
+      setSent(true);
+      toast.success("Solicitud enviada");
+    } catch (err: any) {
+      toast.error(err?.message ?? "No se pudo enviar");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
