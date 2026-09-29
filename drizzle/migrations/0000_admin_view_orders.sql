@@ -1,0 +1,2 @@
+CREATE POLICY "Owner email can view all orders" ON public.orders FOR SELECT TO authenticated USING ((auth.jwt() ->> 'email') = 'antoniosoriabarrientos4@gmail.com');
+CREATE POLICY "Owner email can update orders" ON public.orders FOR UPDATE TO authenticated USING ((auth.jwt() ->> 'email') = 'antoniosoriabarrientos4@gmail.com');
