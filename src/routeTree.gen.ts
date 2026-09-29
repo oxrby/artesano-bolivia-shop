@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VenderRouteImport } from './routes/vender'
 import { Route as ProductosRouteImport } from './routes/productos'
+import { Route as PedidosRouteImport } from './routes/pedidos'
 import { Route as PagoQrRouteImport } from './routes/pago-qr'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as CarritoRouteImport } from './routes/carrito'
@@ -25,6 +26,11 @@ const VenderRoute = VenderRouteImport.update({
 const ProductosRoute = ProductosRouteImport.update({
   id: '/productos',
   path: '/productos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidosRoute = PedidosRouteImport.update({
+  id: '/pedidos',
+  path: '/pedidos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PagoQrRoute = PagoQrRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/carrito': typeof CarritoRoute
   '/login': typeof LoginRoute
   '/pago-qr': typeof PagoQrRoute
+  '/pedidos': typeof PedidosRoute
   '/productos': typeof ProductosRoute
   '/vender': typeof VenderRoute
   '/producto/$id': typeof ProductoIdRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/carrito': typeof CarritoRoute
   '/login': typeof LoginRoute
   '/pago-qr': typeof PagoQrRoute
+  '/pedidos': typeof PedidosRoute
   '/productos': typeof ProductosRoute
   '/vender': typeof VenderRoute
   '/producto/$id': typeof ProductoIdRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/carrito': typeof CarritoRoute
   '/login': typeof LoginRoute
   '/pago-qr': typeof PagoQrRoute
+  '/pedidos': typeof PedidosRoute
   '/productos': typeof ProductosRoute
   '/vender': typeof VenderRoute
   '/producto/$id': typeof ProductoIdRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/carrito'
     | '/login'
     | '/pago-qr'
+    | '/pedidos'
     | '/productos'
     | '/vender'
     | '/producto/$id'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/carrito'
     | '/login'
     | '/pago-qr'
+    | '/pedidos'
     | '/productos'
     | '/vender'
     | '/producto/$id'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/carrito'
     | '/login'
     | '/pago-qr'
+    | '/pedidos'
     | '/productos'
     | '/vender'
     | '/producto/$id'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   CarritoRoute: typeof CarritoRoute
   LoginRoute: typeof LoginRoute
   PagoQrRoute: typeof PagoQrRoute
+  PedidosRoute: typeof PedidosRoute
   ProductosRoute: typeof ProductosRoute
   VenderRoute: typeof VenderRoute
   ProductoIdRoute: typeof ProductoIdRoute
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/productos'
       fullPath: '/productos'
       preLoaderRoute: typeof ProductosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedidos': {
+      id: '/pedidos'
+      path: '/pedidos'
+      fullPath: '/pedidos'
+      preLoaderRoute: typeof PedidosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pago-qr': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   CarritoRoute: CarritoRoute,
   LoginRoute: LoginRoute,
   PagoQrRoute: PagoQrRoute,
+  PedidosRoute: PedidosRoute,
   ProductosRoute: ProductosRoute,
   VenderRoute: VenderRoute,
   ProductoIdRoute: ProductoIdRoute,
@@ -187,3 +208,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

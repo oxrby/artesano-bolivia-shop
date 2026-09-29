@@ -24,6 +24,11 @@ export function SiteHeader() {
           <Link to="/vender" className="text-foreground/80 transition-colors hover:text-foreground" activeProps={{ className: "text-foreground font-medium" }}>
             Vender
           </Link>
+          {user?.email === "antoniosoriabarrientos4@gmail.com" && (
+            <Link to="/pedidos" className="text-foreground/80 transition-colors hover:text-foreground" activeProps={{ className: "text-foreground font-medium" }}>
+              Pedidos
+            </Link>
+          )}
           {!user && (
             <Link to="/login" className="text-foreground/80 transition-colors hover:text-foreground" activeProps={{ className: "text-foreground font-medium" }}>
               Ingresar
@@ -84,7 +89,7 @@ export function SiteFooter() {
           <p className="mb-2 font-medium">Comunidad</p>
           <ul className="space-y-1 text-muted-foreground">
             <li><Link to="/vender">Vende en Artesa</Link></li>
-            <li>Contacto</li>
+            <li><a href="mailto:antoniosoriabarrientos4@gmail.com">Contacto</a></li>
           </ul>
         </div>
       </div>

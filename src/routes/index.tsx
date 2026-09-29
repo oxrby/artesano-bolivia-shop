@@ -6,6 +6,14 @@ import { products } from "@/lib/products";
 import heroImg from "@/assets/hero-artesa.jpg";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Artesa — Arte hecho a mano en Santa Cruz" },
+      { name: "description", content: "Compra artesanía cruceña hecha a mano y paga por QR. Entregas en Santa Cruz de la Sierra." },
+      { property: "og:title", content: "Artesa — Arte hecho a mano en Santa Cruz" },
+      { property: "og:description", content: "Compra artesanía cruceña hecha a mano y paga por QR. Entregas en Santa Cruz de la Sierra." },
+    ],
+  }),
   component: Index,
 });
 
